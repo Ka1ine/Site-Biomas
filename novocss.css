@@ -1,0 +1,191 @@
+/*Soft reset do css*/
+* {/*primeira coisa fazer tirar todas as margem*/
+margin: 0;
+padding:0; /*borda interna*/
+box-sizing: boder-box; /*comeca a contar o elemento a partir da borda interna*/
+}
+
+/*Pesquisar fontes no google fontes*/
+
+body {
+  /*background-image:url("https://conceitosopticos.com.br/wp-content/uploads/2016/12/template-fundo-site-conseitos-opticos-4.jpg");/*colocando imagem*/
+  background-color: black;
+  background-size:auto 100vh; /*proporcao da imagem*/
+  font-family: "Comic sans ms";/*mudando a fonte*//*tudo que nao receber uma fonte especifica fica com essa aqui*/
+  height : 100vh;
+  font-size: 10px;
+}
+
+/*Chamado de breakpoint*/
+/*If da vida*/
+/*Se a tela tiver pelo menos 400px vai carregar estes estilos*/
+@media (min-width: 400px){
+body {
+  font-size: 14px;
+}
+}
+
+header {
+height: 40vh ;/* utilizar 100% da pagina*/
+display: flex;/*coluna*/
+justify-content: center;
+align-items: center;
+}
+
+.menu {
+  background-color:rgb(103, 233, 103); /*declarei a classe menu e fiz tuda ela ficar verde*/
+  position: fixed;/*deixa o elemento fixo na tela*/
+  width: 100vw;/*justificado*/
+  top: 25px;/*Cola o negocio no topo se estiver em 0; so funciona se o position estiver declarado*/
+  z-index: 1;/*faz o menu se tornar mais importante assim ninguem vai ultrapassar ele*/
+  }
+
+.menu ul{ 
+  display:flex; /*forca todo mundo que esta no ul ficar um ao lado do outro*/
+  justify-content:space-around;/*justificar tudo dentro do container*/
+}
+
+.menu li{ 
+  list-style:none; /*elemeto com a classe meno e q tem li; o ultimo nesse caso o li que sera atingindo*/
+
+}
+
+.menu a { 
+display: block;
+padding: 10px 20px;/* mouse chegar mais perto*/
+background: rgb(103, 233, 103);/*caixa do elementos do menu */
+transition: background-color 1s, color 1s;/*eu nao sei mais oq estou fazendo*//*quem tiver lendo esse codigo desculpa*//*acho que isso aqui faz a cor demorar uns 2 segundos para aparecer no menu*/
+}
+
+.menu a:hover{
+  background-color: whitesmoke;
+  color: rgb(103, 233, 103);
+}
+
+a {
+  color: rgb(255, 255, 255);/*medei a cor do texto do menu*/
+  text-decoration: none;/*tirando o underline padrao e fazendo com que nao tenha a linha*/
+  font-size: 16px;
+  
+}
+
+a:hover {
+  text-decoration:underline;/*pseudoclasse para quando o mouse passar por cima ficar com underline*/
+}
+
+.conjuntodetituloesub{
+  transform: scale(0.2) translateX(0vh);
+  opacity: 0;
+
+  animation: ease 2s animacaotitulo forwards;/*n estendi maaaaas cria animacao pro titulo e ai vc cria a funcao da animacao*/
+}
+
+@keyframes animacaotitulo {
+/*estado inicial da animacao*//*tbm pode ser from*/
+0% {
+  transform: scale(0.2) translateX(0vh);
+  opacity: 0;
+}
+
+100% {/*estado final da animacao , pode ser to*/
+  transform: scale(1) translateX(0);
+  opacity: 1;
+
+}
+}
+
+.subtitulo,/*pegar mesma propriedade*/
+.titulo {
+
+  color:whitesmoke; /*mudar cor*/
+  text-align: center; /*centralizar text*/
+}
+
+.titulo {
+  font-size: 7em;/*4 vezes o tamanho*/
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+.subtitulo {
+  font-style:italic;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.contato,
+.inicial{
+  font-family: 'Roboto', sans-serif;
+  color: azure;
+  padding: 5em;/*coloquei as imagens para o lado*/
+  padding-top: 0%;
+  text-align: center;
+
+}
+
+.imagens {
+height: 180px;/*altura*/
+width: 240px;/*largura*/
+border-radius: 70px;/*arredondar imagem*/
+transition: transform 200ms;/*isso aqui serve para fazer as imagens ficarem um pouco maior, mas aqui to colocando o tempo*/
+}
+
+.imagens:active,
+.imagens:hover{
+  transform: scale(1.1) rotate(2deg);/*quando o mouse passar por cima, ele aumenta um pouco, se tiver um ele fica a mesma coisa, se colocar 2 ele ficar 2 vezes o tamalho da imagem original*//*o rotate serve para rodar a imagem */
+
+}
+
+
+@media (min-width : 860px){
+  .imagens {
+    height: 200px;/*altura*/
+    width: 260px;/*largura*/
+    
+    }
+}
+
+.cadaartigo {
+  display:grid; /*nao entendi mas ele ta ai, acho que entendi, grid nao forca coluna ja flex sim*,grid muito mais especifico*/
+  gap: 2em;/*so funciona se o grid tiver declarado*//*vai definir o espacamento entre cada coluna*/
+  
+}
+
+@media (min-width : 560px){
+  .cadaartigo {
+    display:grid; /*nao entendi mas ele ta ai, acho que entendi, grid nao forca coluna ja flex sim*,grid muito mais especifico/
+    gap: 2em;/*so funciona se o grid tiver declarado*//*vai definir o espacamento entre cada coluna*/
+    grid-template-columns: 240px 240px; /*espaco de cada coluna*/
+}
+}
+
+@media (min-width : 880px){
+  .cadaartigo {
+    display:grid; /*nao entendi mas ele ta ai, acho que entendi, grid nao forca coluna ja flex sim*,grid muito mais especifico/
+    gap: 2em;/*so funciona se o grid tiver declarado*//*vai definir o espacamento entre cada coluna*/
+    grid-template-columns: repeat(3, 260px); /*espaco de cada coluna*//*Para nao ter que repedir 3 vezes usar a funcao repeat*/
+    justify-content: center;
+}
+}
+
+.conjuntodetituloesub {
+  margin-top: 4em;
+}
+
+.contato a {/*por mais que seja icone eu consigo modificar utilizando como se fosse uma fonte
+  color: whitesmoke;*/
+  color: whitesmoke;
+  font-size: 4em;
+  transition: text-shadow 1s;
+}
+
+.contato {
+  text-align: center;
+}
+
+.contato a:active, /*para o celular, quando clica*/
+.contato a:hover{
+  text-decoration: none;
+  text-shadow: 0px 0px 10px rgba(67, 197, 67, 10) ;/*colocar tipo uma sombra*/
+
+}
+
+/*pesqisar sobre Loaders/spinners*/
